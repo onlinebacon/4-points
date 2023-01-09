@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>4 Points</title>
+		<link rel="stylesheet" href="css/style.css">
+		<script type="module" src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="field">
+				<div class="title">Geometry</div>
+				<select id="geometry">
+					<option value="planar">Planar</option>
+					<option value="spherical">Spherical</option>
+				</select>
+			</div>
+			<div class="field">
+				<div class="title">Unit</div>
+				<select id="unit">
+					<option value="deg">Degree</option>
+					<option value="mi">Mile</option>
+					<option value="m">Meter</option>
+					<option value="nm">Nautical Mile</option>
+				</select>
+			</div>
+			<script>
+				const sides = [ 'ab', 'ac', 'ad', 'bc', 'bd', 'cd' ];
+				for (const side of sides) {
+					const [ start, end ] = side.split('').map(point => point.toUpperCase());
+					document.writeln(`
+						<div class="field">
+							<div class="calc">Calc</div>
+							<div class="title">${start} to ${end}</div>
+							<input type="text" name="${side}">
+						</div>
+					`);
+				}
+			</script>
+			<div class="excess">
+				Excess: <span id="excess"></span>
+			</div>
+		</div>
+	</body>
+</html>
